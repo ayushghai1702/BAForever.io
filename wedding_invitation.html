@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wedding Invitation - Bhawna & Ayush</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Body and Fonts */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #FFF8E1; /* Light golden background */
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Great Vibes', cursive;
+            color: #D81B60; /* Vibrant magenta */
+        }
+        p {
+            font-size: 18px;
+            color: #303F9F; /* Royal blue */
+            line-height: 1.6;
+        }
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            width: 100%;
+            background-color: rgba(255, 248, 225, 0.95); /* Light golden with transparency */
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #D81B60; /* Vibrant magenta */
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #F57C00; /* Vibrant orange */
+        }
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding-top: 150px;
+            background-image: url('header-background.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            position: relative;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: -1;
+        }
+        header h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #000;
+            animation: fadeInDown 2s;
+        }
+        header p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            animation: fadeInUp 2s;
+        }
+        .btn {
+            background-color: #D81B60; /* Vibrant magenta */
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 20px;
+            border-radius: 30px;
+            transition: background-color 0.3s;
+            animation: fadeInUp 2s;
+        }
+        .btn:hover {
+            background-color: #C2185B; /* Slightly darker magenta */
+        }
+        /* Countdown Timer Styles */
+        #countdown {
+            background-color: #FFF59D; /* Light golden yellow */
+            padding: 60px 20px;
+            text-align: center;
+        }
+        #countdown h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            margin-bottom: 40px;
+            color: #F57C00; /* Vibrant orange */
+        }
+        #timer {
+            display: flex;
+            justify-content: center;
+        }
+        #timer div {
+            margin: 0 15px;
+        }
+        #timer span {
+            display: block;
+            font-size: 48px;
+            color: #D81B60; /* Vibrant magenta */
+        }
+        #timer p {
+            font-size: 18px;
+            margin-top: 5px;
+            color: #303F9F; /* Royal blue */
+        }
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        .container {
+            width: 85%;
+            margin: auto;
+            overflow: hidden;
+        }
+        h2.section-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px;
+            color: #D81B60; /* Vibrant magenta */
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        h2.section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background-color: #FBC02D; /* Golden yellow */
+            position: absolute;
+            left: 50%;
+            bottom: -15px;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        .event {
+            margin-bottom: 50px;
+            animation: fadeIn 2s;
+        }
+        .event h3 {
+            font-size: 32px;
+            color: #F57C00; /* Vibrant orange */
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .event p {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #303F9F; /* Royal blue */
+        }
+        .theme {
+            color: #388E3C; /* Emerald green */
+            font-weight: bold;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        /* RSVP Section */
+        .rsvp-section {
+            background-color: #FCE4EC; /* Light pink */
+            padding: 80px 20px;
+            text-align: center;
+            background-image: url('mandala.png'); /* Replace with your image */
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .rsvp-section h2 {
+            color: #D81B60; /* Vibrant magenta */
+            margin-bottom: 40px;
+            text-shadow: 2px 2px #fff;
+            font-size: 48px;
+        }
+        .rsvp-section p {
+            color: #303F9F; /* Royal blue */
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+        .rsvp-btn {
+            background-color: #F57C00; /* Vibrant orange */
+            color: #fff;
+            padding: 15px 40px;
+            font-size: 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .rsvp-btn:hover {
+            background-color: #E64A19; /* Darker orange */
+        }
+        /* Footer Styles */
+        footer {
+            background-color: #D81B60; /* Vibrant magenta */
+            text-align: center;
+            padding: 20px 0;
+            font-size: 18px;
+            color: #fff;
+        }
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+            header h1 {
+                font-size: 40px;
+            }
+            header p {
+                font-size: 20px;
+            }
+            .event h3 {
+                font-size: 26px;
+            }
+            .event p {
+                font-size: 18px;
+            }
+            .rsvp-btn {
+                font-size: 20px;
+                padding: 10px 30px;
+            }
+            #timer {
+                flex-direction: column;
+            }
+            #timer div {
+                margin: 10px 0;
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="#invitation">Invitation</a></li>
+            <li><a href="#countdown">Countdown</a></li>
+            <li><a href="#sagan-sangeet">Sagan & Sangeet</a></li>
+            <li><a href="#haldi-wedding">Haldi & Wedding</a></li>
+            <li><a href="#venue">Venue</a></li>
+            <li><a href="#rsvp">RSVP</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header id="invitation">
+        <h1>॥ श्री गणेशाय नमः ॥</h1>
+        <p>With the blessings of</p>
+        <h2>Smt. Prabha Devi & Shri Netram Singh</h2>
+        <h2>Mrs. Paro Devi & Mr. Deepak Singh</h2>
+        <p>cordially invite you to the wedding ceremony of their beloved daughter</p>
+        <h1>Bhawna Singh</h1>
+        <h3>weds</h3>
+        <h1>Ayush Ghai</h1>
+        <p>(Son of Mrs. Reena Mehta & Mr. Ashwani Kumar Ghai)</p>
+        <p>As they embark on a new journey of love and togetherness</p>
+        <a href="#rsvp" class="btn">RSVP Now</a>
+    </header>
+
+    <!-- Countdown Timer Section -->
+    <section id="countdown">
+        <h2>Countdown to Our Big Day</h2>
+        <div id="timer">
+            <div><span id="days"></span><p>Days</p></div>
+            <div><span id="hours"></span><p>Hours</p></div>
+            <div><span id="minutes"></span><p>Minutes</p></div>
+            <div><span id="seconds"></span><p>Seconds</p></div>
+        </div>
+    </section>
+
+    <!-- Sagan & Sangeet Section -->
+    <section id="sagan-sangeet" style="background-color: #F8BBD0;"> <!-- Light pink background -->
+        <div class="container">
+            <h2 class="section-title">Sagan Ceremony & Sangeet</h2>
+            <div class="event">
+                <p><strong>Date:</strong> 9th December 2024</p>
+                <h3>Sagan Ceremony</h3>
+                <p>A pre-wedding ritual where the groom is blessed by his family, and he receives gifts and sweets from the bride’s family, symbolizing good luck.</p>
+                <p>Join us for this auspicious ceremony as we shower blessings upon Ayush.</p>
+                <p class="theme">Dress Code: Dazzling Attire (Bling and Glitter)</p>
+            </div>
+            <div class="event">
+                <h3>Sangeet Ceremony</h3>
+                <p>A musical celebration before the wedding where both families sing, dance, and enjoy performances to celebrate the upcoming marriage.</p>
+                <p>Let the night sparkle with joy as we dance to the tunes of love and laughter.</p>
+                <p class="theme">Dress Code: Dazzling Attire (Bling and Glitter)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Haldi & Wedding Section -->
+    <section id="haldi-wedding" style="background-color: #FFF59D;"> <!-- Light golden yellow background -->
+        <div class="container">
+            <h2 class="section-title">Haldi Ceremony & Wedding Rituals</h2>
+            <div class="event">
+                <p><strong>Date:</strong> 10th December 2024</p>
+                <h3>Haldi Ceremony</h3>
+                <p>Turmeric paste is applied to the bride and groom by family members to bring good luck, purify, and prepare them for the wedding.</p>
+                <p>Embrace the hues of happiness as we apply the sacred turmeric paste to bless the couple.</p>
+                <p class="theme">Theme: Shades of Yellow</p>
+            </div>
+            <div class="event">
+                <h3>Wedding Ceremony</h3>
+                <p>The main event where the bride and groom exchange vows and are married through sacred rituals, typically around a fire.</p>
+                <p>Witness the sacred vows and timeless traditions as Bhawna and Ayush unite in matrimony.</p>
+                <p class="theme">Attire: Traditional Indian Attire</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Venue Section -->
+    <section id="venue" style="background-color: #C8E6C9;"> <!-- Light green background -->
+        <div class="container">
+            <h2 class="section-title">Venue & Details</h2>
+            <p class="venue"><strong>Neemrana Fort Palace</strong><br>15th Century, Delhi-Jaipur Highway 122nd Milestone, Delhi - Jaipur Expy,<br> Neemrana, Rajasthan 301705, India</p>
+            <p>Experience the royal grandeur as we celebrate amidst the historic beauty of Neemrana Fort.</p>
+            <p class="italic">All ceremonies will take place at this venue</p>
+            <h3>Additional Information:</h3>
+            <ul>
+                <li>Accommodation has been arranged at the venue for all guests.</li>
+                <li>Please inform us of any dietary requirements or special assistance needed.</li>
+            </ul>
+            <!-- Google Maps Embed -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.225337122645!2d76.3840408144075!3d27.989017782691835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3911c5479c6d4d51%3A0x5b46a24ecdd4e7b5!2sNeemrana%20Fort-Palace!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                frameborder="0"
+                style="border:0;"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section id="rsvp" class="rsvp-section">
+        <h2>Kindly Respond</h2>
+        <p>We would be delighted to have your presence. Please let us know if you will be able to join us in our celebrations.</p>
+        <a href="https://forms.gle/your-google-form-link" target="_blank" class="rsvp-btn">RSVP via Google Form</a>
+        <!-- Replace the href value with your actual Google Form link -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 Bhawna & Ayush's Wedding | Designed with ❤️
+    </footer>
+
+    <!-- JavaScript for Countdown Timer -->
+    <script>
+        // Set the date we're counting down to
+        var countDownDate = new Date("Dec 10, 2024 00:00:00").getTime();
+
+        // Update the count down every 1 second
+        var countdownfunction = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+            
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+            
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Display the result in the elements with id
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = ("0" + hours).slice(-2);
+            document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2);
+            document.getElementById("seconds").innerHTML = ("0" + seconds).slice(-2);
+            
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(countdownfunction);
+                document.getElementById("timer").innerHTML = "Today is the Big Day!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
